@@ -15,10 +15,24 @@ class Transaction:
      
     def add_item(self, nama_item, jumlah_item, harga_item):
         """Method untuk memasukkan barang yang ingin dibeli"""
+        print("---Tambah Item---")
 
-        # Hitung harga total per item
-        harga_total = jumlah_item*harga_item
-        self.list_belanja[nama_item]= [jumlah_item, harga_item, harga_total]
+        # Jika nama item sama, tambah jumlah lama dengan jumlah baru
+        if nama_item in self.list_belanja.keys():
+            print("Nama barang sama, jumlah akan ditambahkan")
+
+            jumlah_baru = self.list_belanja[nama_item][0] + jumlah_item
+            harga_total = jumlah_baru * self.list_belanja[nama_item][1]
+
+            # Update jumlah baru & harga total baru di keranjang
+            # Harga tidak di-update karena barang yg sama
+            self.list_belanja[nama_item][0] = jumlah_baru
+            self.list_belanja[nama_item][2] = harga_total
+
+        # Jika nama item baru, tambah sebagai item baru    
+        else:
+            harga_total = jumlah_item*harga_item
+            self.list_belanja[nama_item]= [jumlah_item, harga_item, harga_total]
 
         print(f"Anda menambahkan item {nama_item} sejumlah: {jumlah_item}")
         print(".............................................")
@@ -26,7 +40,7 @@ class Transaction:
     def check_list(self, nama):
         """
         Method untuk mengecek apakah nama barang ada di keranjang belanja
-        Akan dipanggil di method utama lainya
+        Akan dipanggil di method utama lainya untuk cek input
         """
         if nama in self.list_belanja.keys():
             pass
@@ -83,7 +97,7 @@ class Transaction:
             except ValueError:
                 print("Mohon masukkan angka")
 
-        self.list_belanja[nama_item][0]= update_jumlah #update jumlah baru ke 
+        self.list_belanja[nama_item][0]= update_jumlah #update jumlah baru ke dict
 
         # Update harga total per item karena jumlah item berubah
         harga_baru = update_jumlah * self.list_belanja[nama_item][1]
