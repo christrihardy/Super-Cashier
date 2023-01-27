@@ -7,7 +7,7 @@ class Transaction:
 
     def __init__(self):
 
-        # Keranjang belanja untuk menampung item,j umlah, harga dan harga total
+        # Keranjang belanja untuk menampung item,jumlah, harga dan harga total
         self.list_belanja = {}
 
         # Counter untuk menghitung total harga belanjaan
