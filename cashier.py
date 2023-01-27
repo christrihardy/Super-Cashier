@@ -1,7 +1,6 @@
 
 from tabulate import tabulate
 
-
 class Transaction:
     """Class untuk membuat objek transaksi"""
 
@@ -13,9 +12,22 @@ class Transaction:
         # Counter untuk menghitung total harga belanjaan
         self.total_belanja = 0
      
-    def add_item(self, nama_item, jumlah_item, harga_item):
+    def add_item(self):
         """Method untuk memasukkan barang yang ingin dibeli"""
         print("---Tambah Item---")
+
+        nama_item = input("Nama item: ")
+        
+        # Jika input berupa blank input atau bukan angka, nilai input = 0
+        try:
+            jumlah_item = input("Jumlah item: ")
+            harga_item = input("Harga item: ")
+            jumlah_item = int(jumlah_item)
+            harga_item = int(harga_item)
+
+        except:
+            jumlah_item = 0
+            harga_item = 0
 
         # Jika nama item sama, tambah jumlah lama dengan jumlah baru
         if nama_item in self.list_belanja.keys():
@@ -34,7 +46,7 @@ class Transaction:
             harga_total = jumlah_item*harga_item
             self.list_belanja[nama_item]= [jumlah_item, harga_item, harga_total]
 
-        print(f"Anda menambahkan item {nama_item} sejumlah: {jumlah_item}")
+        print(f"Anda menambahkan item '{nama_item}' sejumlah: {jumlah_item}")
         print(".............................................")
 
     def check_list(self, nama):
