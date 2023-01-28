@@ -1,19 +1,30 @@
+"""
+Module yang berisi class & fungsi kasir untuk Super Cashier
+Akan diimport ke module simple_UI.py
+"""
 
 from tabulate import tabulate
 
 class Transaction:
-    """Class untuk membuat objek transaksi"""
 
     def __init__(self):
+        """Inisialisasi dictionary keranjang belanja"""
 
         # Keranjang belanja untuk menampung item,jumlah, harga dan harga total
-        self.list_belanja = {}
+        self.dict_belanja = {}
 
         # Counter untuk menghitung total harga belanjaan
         self.total_belanja = 0
      
     def add_item(self):
-        """Method untuk memasukkan barang yang ingin dibeli"""
+        """
+        Method utk memasukkan barang yang ingin dibeli
+
+        Input: 
+        - Nama Item
+        - Jumlah Item
+        - Harga Item
+        """
         print("---Tambah Item---")
 
         nama_item = input("Nama item: ")
@@ -22,6 +33,7 @@ class Transaction:
         try:
             jumlah_item = input("Jumlah item: ")
             harga_item = input("Harga item: ")
+            
             jumlah_item = int(jumlah_item)
             harga_item = int(harga_item)
 
@@ -30,21 +42,21 @@ class Transaction:
             harga_item = 0
 
         # Jika nama item sama, tambah jumlah lama dengan jumlah baru
-        if nama_item in self.list_belanja.keys():
+        if nama_item in self.dict_belanja.keys():
             print("Nama barang sama, jumlah akan ditambahkan")
 
-            jumlah_baru = self.list_belanja[nama_item][0] + jumlah_item
-            harga_total = jumlah_baru * self.list_belanja[nama_item][1]
+            jumlah_baru = self.dict_belanja[nama_item][0] + jumlah_item
+            harga_total = jumlah_baru * self.dict_belanja[nama_item][1]
 
             # Update jumlah baru & harga total baru di keranjang
-            # Harga tidak di-update karena barang yg sama
-            self.list_belanja[nama_item][0] = jumlah_baru
-            self.list_belanja[nama_item][2] = harga_total
+            # Harga tidak di-update karena item yg sama
+            self.dict_belanja[nama_item][0] = jumlah_baru
+            self.dict_belanja[nama_item][2] = harga_total
 
-        # Jika nama item baru, tambah sebagai item baru    
+        # Jika nama item unik/tidak ada di keranjang, tambah sebagai item baru    
         else:
             harga_total = jumlah_item*harga_item
-            self.list_belanja[nama_item]= [jumlah_item, harga_item, harga_total]
+            self.dict_belanja[nama_item]= [jumlah_item, harga_item, harga_total]
 
         print(f"Anda menambahkan item '{nama_item}' sejumlah: {jumlah_item}")
         print(".............................................")
@@ -52,9 +64,10 @@ class Transaction:
     def check_list(self, nama):
         """
         Method untuk mengecek apakah nama barang ada di keranjang belanja
+
         Akan dipanggil di method utama lainya untuk cek input
         """
-        if nama in self.list_belanja.keys():
+        if nama in self.dict_belanja.keys():
             pass
         else:
             raise KeyError("Item tidak ditemukan, mohon input nama item dengan benar")
@@ -62,6 +75,11 @@ class Transaction:
     def update_item_name(self):
         """
         Method untuk update nama barang
+
+        Input:
+        - Nama item yg ingin diubah
+        - Nama item baru
+
         """
         print("---Ubah Nama Item---")
 
@@ -77,17 +95,24 @@ class Transaction:
   
         update_nama = (input("Nama item baru: ")) 
       
-        # Buat key baru untuk nama item baru dengan harga dan jumlah yg sama
+        # Buat key baru untuk nama item baru dengan harga & jumlah yg sama
         # Lalu delete key nama item lama, karena key immutable 
-        self.list_belanja[update_nama]= self.list_belanja[nama_item]
-        del self.list_belanja[nama_item]
+        self.dict_belanja[update_nama]= self.dict_belanja[nama_item]
+        del self.dict_belanja[nama_item]
         
         print(f"Update nama berhasil, item '{nama_item}' diubah menjadi '{update_nama}'")
         print(".............................................")
 
     
     def update_item_qty(self):
-        """"Method untuk update jumlah barang"""
+        """"
+        Method untuk update jumlah barang
+
+        Input:
+        - Nama item yg ingin diubah jumlahnya
+        - Jumlah baru
+        
+        """
         print("---Ubah Jumlah Item---")
 
         # User input akan di-loop sampai nama barang benar
@@ -109,17 +134,23 @@ class Transaction:
             except ValueError:
                 print("Mohon masukkan angka")
 
-        self.list_belanja[nama_item][0]= update_jumlah #update jumlah baru ke dict
+        self.dict_belanja[nama_item][0]= update_jumlah #update jumlah ke dict
 
         # Update harga total per item karena jumlah item berubah
-        harga_baru = update_jumlah * self.list_belanja[nama_item][1]
-        self.list_belanja[nama_item][2] = harga_baru
+        harga_baru = update_jumlah * self.dict_belanja[nama_item][1]
+        self.dict_belanja[nama_item][2] = harga_baru
         
         print(f"Update jumlah item '{nama_item}' berhasil, jumlah diubah menjadi: {update_jumlah}")
         print(".............................................")
     
     def update_item_price(self):
-        """Method untuk update harga barang"""
+        """
+        Method untuk update harga barang
+        
+        Input:
+        - Nama item yang ingin diubah harganya
+        - Harga baru
+        """
         print("---Ubah Harga Item---")
 
         # User input akan di-loop sampai nama barang benar
@@ -141,11 +172,11 @@ class Transaction:
             except ValueError:
                 print("Mohon masukan angka")
 
-        self.list_belanja[nama_item][1]= update_harga # update harga baru ke dict
+        self.dict_belanja[nama_item][1]= update_harga # update harga baru ke dict
 
         # Update harga total per item karena harga item berubah
-        harga_baru = update_harga * self.list_belanja[nama_item][0]
-        self.list_belanja[nama_item][2] = harga_baru
+        harga_baru = update_harga * self.dict_belanja[nama_item][0]
+        self.dict_belanja[nama_item][2] = harga_baru
         
         print(f"Update harga item '{nama_item}' berhasil, harga diubah menjadi {update_harga}")
         print(".............................................")
@@ -164,7 +195,7 @@ class Transaction:
             except Exception as e:
                 print(e)
 
-        self.list_belanja.pop(nama_item)
+        self.dict_belanja.pop(nama_item)
 
         print(f"Item '{nama_item}' berhasil dihapus")
         print(".............................................")
@@ -172,26 +203,29 @@ class Transaction:
     def reset_transaction(self):
         """Method untuk menghapus/reset semua barang yang ada di keranjang"""
 
-        self.list_belanja.clear()
+        self.dict_belanja.clear()
         print("Semua item di keranjang telah dihapus!")
+        print(".............................................")
         
     def check_order(self):
         """
         Method untuk menampilkan barang yang ada di keranjang
 
-        Output: tabel dan pesan 'pemesanan sudah benar/salah'
+        Output: 
+        - Tabel dan 
+        - Pesan 'pemesanan sudah benar atau salah'
         """
 
         # Menampilkan belanjaan dalam bentuk tabel
-        print(tabulate([[k,] + v for k,v in self.list_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"))
+        print(tabulate([[k,] + v for k,v in self.dict_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"))
         print(".............................................")
 
-        # Branching untuk mengecek kesalahan input
-        # Cek apakah ada harga/jumlah bernilai 0 atau nama berupa empty string
-        if any(0 in val for val in self.list_belanja.values()): 
+        # Branching untuk cek kesalahan input
+        # Cek jika ada harga/jumlah bernilai 0 atau nama berupa empty string
+        if any(0 in val for val in self.dict_belanja.values()): 
             print("Terjadi kesalahan input harga atau jumlah")
             
-        elif "" in self.list_belanja.keys(): 
+        elif "" in self.dict_belanja.keys(): 
             print("Terjadi kesalahan input nama barang")
     
         else:
@@ -203,19 +237,22 @@ class Transaction:
         """
         Method untuk menghitung total harga belanjaan & diskon yang didapat
 
-        Output: tabel belanjaan, diskon(jika ada), dan jumlah yang harus dibayar
+        Output: 
+        - Tabel belanjaan
+        - Diskon (jika memenuhi syarat)
+        - Jumlah yang harus dibayar
         """
         
         # Hitung total harga belanjaan
-        for x in self.list_belanja:
-            self.total_belanja += self.list_belanja[x][2]
+        for x in self.dict_belanja:
+            self.total_belanja += self.dict_belanja[x][2]
         
         # Menampilkan belanjaan dalam bentuk tabel
-        print(tabulate([[k,] + v for k,v in self.list_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"))
+        print(tabulate([[k,] + v for k,v in self.dict_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"))
         
         print(f"Total belanja anda senilai: Rp. {self.total_belanja:,.0f}")
         
-        # Branching untuk menentukan diskon yang didapat
+        # Menentukan diskon 
         if self.total_belanja > 500_000:
             diskon = 0.1 * self.total_belanja
             self.total_belanja -= diskon
