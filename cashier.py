@@ -27,12 +27,12 @@ class Transaction:
         """
         print("---Tambah Item---")
 
-        nama_item = input("Nama item: ")
+        nama_item = input("Nama Item: ")
         
         # Jika input berupa blank input atau bukan angka, nilai input = 0
         try:
-            jumlah_item = input("Jumlah item: ")
-            harga_item = input("Harga item: ")
+            jumlah_item = input("Jumlah Item: ")
+            harga_item = input("Harga Item: ")
             
             jumlah_item = int(jumlah_item)
             harga_item = int(harga_item)
@@ -223,11 +223,12 @@ class Transaction:
         # Branching untuk cek kesalahan input
         # Cek jika ada harga/jumlah bernilai 0 atau nama berupa empty string
         if any(0 in val for val in self.dict_belanja.values()): 
-            print("Terjadi kesalahan input harga atau jumlah")
-            
+            print("Terjadi kesalahan input harga atau jumlah")        
         elif "" in self.dict_belanja.keys(): 
             print("Terjadi kesalahan input nama barang")
-    
+        # Cek jika keranjang belanja kosong
+        elif len(self.dict_belanja) == 0:
+            print("Tidak ada item di keranjang")
         else:
             print("Pemesanan sudah benar")
 
@@ -248,7 +249,7 @@ class Transaction:
             self.total_belanja += self.dict_belanja[x][2]
         
         # Menampilkan belanjaan dalam bentuk tabel
-        print(tabulate([[k,] + v for k,v in self.dict_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"))
+        print(tabulate([[k,] + v for k,v in self.dict_belanja.items()], headers = ["Nama", "Jumlah", "Harga", "Total"], tablefmt ="github"), "\n")
         
         print(f"Total belanja anda senilai: Rp. {self.total_belanja:,.0f}")
         
