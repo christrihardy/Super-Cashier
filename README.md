@@ -2,7 +2,7 @@
 
 ## Latar Belakang
 Super Cashier adalah program kasir sederhana berbasis bahasa pemrograman Python. 
-Program ini dapat menjalankan fungsi dasar mesin kasir sehingga pengguna/pelanggan dapat melakukan proses belanja secara self-service
+Program ini dapat menjalankan fungsi dasar mesin kasir sehingga pengguna dapat melakukan proses belanja secara self-service
 
 ## Tools
 Languages: 
@@ -11,15 +11,17 @@ Languages:
 Libraries:
 - Tabulate
 
-## Tujuan Project
+## Objectives
 Pembelajaran:
 1. Membuat program kasir sederhana dengan prinsip OOP
+2. Mengaplikasikan cara penulisan code yang bersih(clean code) dengan acuan PEP8
 
-Fungsi Program:
+Program Objectives:
 1. Menambahkan barang ke keranjang belanja virtual
-2. Mengubah nama/jumlah/harga barang
-3. Melihat daftar barang yang ada di keranjang
-4. Menampilkan dan menghitung harga total belanjaan 
+2. Mengubah nama,jumlah, atau harga barang yang telah dibeli
+3. Menghapus satu atau semua barang di keranjang
+4. Menampilkan daftar barang yang ada di keranjang
+5. Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
 
 ## Deskripsi Program
 - Module 'cashier.py' berisi class yang memiliki berbagai method untuk menjalankan fungsi kasir
