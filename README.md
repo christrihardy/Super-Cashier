@@ -1,5 +1,6 @@
 # Super-Cashier
 
+
 ## Latar Belakang
 Super Cashier adalah program kasir sederhana berbasis bahasa pemrograman Python. 
 Program ini dapat menjalankan fungsi dasar mesin kasir sehingga pengguna dapat melakukan proses belanja secara self-service
@@ -12,26 +13,53 @@ Libraries:
 - Tabulate
 
 ## Objectives
-Pembelajaran:
-1. Membuat program kasir sederhana dengan prinsip OOP
-2. Mengaplikasikan cara penulisan code yang bersih(clean code) dengan acuan PEP8
+Tujuan Pembelajaran:
+- Membuat program kasir sederhana dengan prinsip OOP
+- Menerapkan konsep error catching dengan 'try-except'
+- Menerapkan penulisan code yang bersih(clean code) dengan acuan PEP8
 
 Program Objectives:
-1. Menambahkan barang ke keranjang belanja virtual
-2. Mengubah nama,jumlah, atau harga barang yang telah dibeli
-3. Menghapus satu atau semua barang di keranjang
-4. Menampilkan daftar barang yang ada di keranjang
-5. Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
+Membuat program kasir sederhana yang mempunyai fungsi:
+- Menambahkan barang ke keranjang belanja virtual
+- Mengubah nama,jumlah, atau harga barang yang telah dibeli
+- Menghapus satu atau semua barang di keranjang
+- Menampilkan daftar barang yang ada di keranjang
+- Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
+- UI sederhana untuk menjalankan fungsi-fungsi diatas dengan user input
 
-Design Flowchart:
-![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216393664-b1f16225-5159-4ebc-8bd5-111999efde07.png)
+Alur Program/Flowchart:
+![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216411621-c7ac820b-4301-4571-a590-c14a71892c05.png)
 
-
+1. User membuat objek ID transaksi
+2. User menambahkan item dengan memasukkan nama, jumlah dan harga item yg ingin dibeli
+    - Input 'yes' jika masih ingin menambahkan item lagi
+3. Jika user mau mengecek/melihat daftar belanjaan, user bisa melakukan check order
+    -Menampilkan daftar belanjaan dalam bentuk tabel
+    -Notifikasi bila ada input yang tidak benar
+5. Jika ada kesalahan input, user dapat mengupdate nama/harga/jumlah item yang salah
+6. Jika batal membeli item, user dapat menghapus item:
+    - Hapus 1 item
+    - Reset transaksi(hapus seluruh item)
+ 7. Jika sudah selesai berbelanja, user dapat melakukan checkout
+    - Diskon jika total belanja memenuhi syarat
 
 ## Deskripsi Program
-- Module 'cashier.py' berisi class yang memiliki berbagai method untuk menjalankan fungsi kasir
-- Module 'simple_UI.py' memuat objek dan fungsi untuk daftar menu sederhana
+Files:
+- Module 'cashier.py' berisi class Transaction yang memiliki berbagai method untuk fungsi kasir
+- Module 'simple_UI.py' berisi daftar menu dan pembuatan objek ID transaksi
 - File utama 'main.py' untuk menjalankan program Super Cashier
+
+Code Summary:
+1. init()
+2. add_item()
+3. check_list()
+4. update_item_name()
+5. update_item_qty()
+6. update_item_price()
+7. delete_item()
+8. reset_transaction()
+9. check_order()
+10. total_price()
 
 ## Cara Penggunaan
 1. Download/clone repository ini ke direktori lokal anda
@@ -65,5 +93,11 @@ Design Flowchart:
 4.  Customer selesai belanja dan ingin melihat total yang harus dibayar
 
     ![test 4](https://user-images.githubusercontent.com/122888994/215345419-7b16db4c-aa54-497b-813a-4dc7045067e2.png)
+
+### Conclusion
+
+Future Work:
+1. Menambahkan GUI agar penggunaan program lebih mudah dan intuitif
+2. Menambahkan fitur kasir yang lebih kompleks, seperti penghitungan pembayaran
 
 
