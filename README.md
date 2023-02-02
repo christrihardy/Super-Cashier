@@ -23,6 +23,11 @@ Program Objectives:
 4. Menampilkan daftar barang yang ada di keranjang
 5. Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
 
+Design Flowchart:
+![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216393664-b1f16225-5159-4ebc-8bd5-111999efde07.png)
+
+
+
 ## Deskripsi Program
 - Module 'cashier.py' berisi class yang memiliki berbagai method untuk menjalankan fungsi kasir
 - Module 'simple_UI.py' memuat objek dan fungsi untuk daftar menu sederhana
