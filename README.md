@@ -28,7 +28,7 @@ Membuat program kasir sederhana yang mempunyai fungsi:
 - UI sederhana untuk menjalankan fungsi-fungsi diatas dengan user input
 
 Alur Program/Flowchart:
-![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216411621-c7ac820b-4301-4571-a590-c14a71892c05.png)
+![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216419676-545da74c-c9f1-4ba1-aa25-ba4289d85c0e.png)
 
 1. User membuat objek ID transaksi
 2. User menambahkan item dengan memasukkan nama, jumlah dan harga item yg ingin dibeli
@@ -71,9 +71,8 @@ Code Summary:
     - Ayam Goreng, Jumlah: 2 pcs, Harga: 20000
     - Pasta Gigi, Jumlah: 3 pcs, Harga: 15000
     
-    ![test 1](https://user-images.githubusercontent.com/122888994/215345285-8edab589-e941-450f-a08e-96df3427eb72.png)
-    
-    ![test 1_2](https://user-images.githubusercontent.com/122888994/215345346-f5e61516-93cb-407b-9d88-90b5011908c0.png)
+    ![test case 1](https://user-images.githubusercontent.com/122888994/216420674-4d42f9d7-0bce-403f-9cdd-6876004eb924.png)
+
     
     ![test 1_3](https://user-images.githubusercontent.com/122888994/215345540-93b45ee2-d279-43c5-8acc-86ceff434ba6.png)
 
@@ -99,5 +98,6 @@ Code Summary:
 Future Work:
 1. Menambahkan GUI agar penggunaan program lebih mudah dan intuitif
 2. Menambahkan fitur kasir yang lebih kompleks, seperti penghitungan pembayaran
+3. Memperbaiki alur program, misalnya: exit ke menu kalau terlanjur masuk input setelah pilih fitur
 
 
