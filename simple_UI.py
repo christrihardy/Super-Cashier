@@ -16,14 +16,14 @@ while True:
         break
 
     except:
-        print('Mohon input ID transaksi') #Loop jika input berupa kosong
+        print('Mohon input ID transaksi')  # Loop jika input berupa kosong
 
 print("ID transaksi anda:", transaction_ID)
 
 # Simpan objek dari user input di dictionary, key sebagai nama instance
 dict_ID[transaction_ID] = cashier.Transaction()
 
-# Function untuk memanggil method dari objek
+# Function untuk memanggil method dari instance object
 def add_item():
     dict_ID[transaction_ID].add_item()
     menu()
@@ -63,6 +63,10 @@ def total_price():
     print("Transaction ID:", transaction_ID)
     dict_ID[transaction_ID].total_price()
     menu()
+
+
+def leave():
+    print("Terima kasih atas kunjunganya")
 
 # UI sederhana
 def menu():
@@ -108,8 +112,5 @@ def menu():
     elif fitur == 8:
         total_price()
     elif fitur == 9:
-        print("Terima kasih")
-        exit()  # Exit program
-
-# Jalankan menu() saat module ini diimport di main.py
-# menu()
+        leave()
+        return  # stop code

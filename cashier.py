@@ -50,15 +50,13 @@ class Transaction:
             harga_total = jumlah_baru * self.dict_belanja[nama_item][1]
 
             # Update jumlah baru & harga total baru di keranjang
-            # Harga tidak di-update karena item yg sama
             self.dict_belanja[nama_item][0] = jumlah_baru
             self.dict_belanja[nama_item][2] = harga_total
 
         # Jika nama item unik/tidak ada di keranjang, tambah sebagai item baru
         else:
             harga_total = jumlah_item*harga_item
-            self.dict_belanja[nama_item] = [
-                jumlah_item, harga_item, harga_total]
+            self.dict_belanja[nama_item] = [jumlah_item, harga_item, harga_total]
 
         print(f"Anda menambahkan item '{nama_item}' sejumlah: {jumlah_item}")
 
@@ -85,8 +83,7 @@ class Transaction:
         if nama in self.dict_belanja.keys():
             pass
         else:
-            raise KeyError(
-                "Item tidak ditemukan, mohon input nama item dengan benar")
+            raise KeyError("Item tidak ditemukan, mohon input nama item dengan benar")
 
     def update_item_name(self):
         """
