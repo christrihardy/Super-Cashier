@@ -28,7 +28,7 @@ Membuat program kasir sederhana yang mempunyai fungsi:
 - Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
 - UI sederhana untuk menjalankan fungsi-fungsi diatas dengan user input
 
-Alur Program/Flowchart:
+## Flowchart:
 ![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216419676-545da74c-c9f1-4ba1-aa25-ba4289d85c0e.png)
 
 1. User membuat objek ID transaksi
@@ -52,7 +52,7 @@ Files:
 
 ## Cara Penggunaan
 1. Download/clone repository ini ke direktori lokal anda
-2. Jalankan file main.py
+2. Jalankan file **main.py**
 3. Pilih fitur dari daftar menu untuk menjalankan fungsi kasir
 
 ## Program Functions
