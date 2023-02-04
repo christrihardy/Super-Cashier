@@ -5,54 +5,70 @@ Akan diimport ke file utama main.py
 
 import cashier
 
-# User input untuk membuat
-transaksi_1 = cashier.Transaction()
+# Buat objek ID transaksi berdasarkan user input
+dict_ID = {}
 
-# Function untuk memanggil method dari objek
+while True:
+    try:
+        transaction_ID = input("Buat ID transaksi: ")
+        if not transaction_ID:
+            raise ValueError
+        break
 
+    except:
+        print('Mohon input ID transaksi')  # Loop jika input berupa kosong
 
+print("ID transaksi anda:", transaction_ID)
+
+# Simpan objek dari user input di dictionary, key sebagai nama instance
+dict_ID[transaction_ID] = cashier.Transaction()
+
+# Function untuk memanggil method dari instance object
 def add_item():
-    transaksi_1.add_item()
+    dict_ID[transaction_ID].add_item()
     menu()
 
 
 def update_name():
-    transaksi_1.update_item_name()
+    dict_ID[transaction_ID].update_item_name()
     menu()
 
 
 def update_qty():
-    transaksi_1.update_item_qty()
+    dict_ID[transaction_ID].update_item_qty()
     menu()
 
 
 def update_price():
-    transaksi_1.update_item_price()
+    dict_ID[transaction_ID].update_item_price()
     menu()
 
 
 def delete_item():
-    transaksi_1.delete_item()
+    dict_ID[transaction_ID].delete_item()
     menu()
 
 
 def reset_transaction():
-    transaksi_1.reset_transaction()
+    dict_ID[transaction_ID].reset_transaction()
     menu()
 
 
 def check_order():
-    transaksi_1.check_order()
+    dict_ID[transaction_ID].check_order()
     menu()
 
 
 def total_price():
-    transaksi_1.total_price()
+    print("Transaction ID:", transaction_ID)
+    dict_ID[transaction_ID].total_price()
     menu()
 
+
+def leave():
+    print("Terima kasih atas kunjunganya")
+
 # UI sederhana
-
-
 def menu():
     """
     Daftar fitur Super Cashier
@@ -96,9 +112,5 @@ def menu():
     elif fitur == 8:
         total_price()
     elif fitur == 9:
-        print("Terima kasih")
-        exit()  # Exit program
-
-
-# Jalankan menu() saat module ini diimport di main.py
-menu()
+        leave()
+        return  # stop code
