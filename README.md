@@ -35,8 +35,8 @@ Membuat program kasir sederhana yang mempunyai fungsi:
 2. User menambahkan item dengan memasukkan nama, jumlah dan harga item yg ingin dibeli
     - Input 'yes' jika masih ingin menambahkan item lagi
 3. Jika user mau mengecek/melihat daftar belanjaan, user bisa melakukan check order
-    -Menampilkan daftar belanjaan dalam bentuk tabel
-    -Notifikasi bila ada input yang tidak benar
+    - Menampilkan daftar belanjaan dalam bentuk tabel
+    - Notifikasi bila ada input yang tidak benar
 5. Jika ada kesalahan input, user dapat mengupdate nama/harga/jumlah item yang salah
 6. Jika batal membeli item, user dapat menghapus item:
     - Hapus 1 item
