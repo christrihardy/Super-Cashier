@@ -13,13 +13,7 @@ Libraries:
 - Tabulate
 
 ## Objectives
-Tujuan Pembelajaran:
-- Membuat program kasir sederhana dengan prinsip OOP
-- Menerapkan konsep error catching dengan 'try-except'
-- Menerapkan metode modular code 
-- Menerapkan penulisan code yang bersih(clean code) dengan acuan PEP8
 
-Program Objectives:
 Membuat program kasir sederhana yang mempunyai fungsi:
 - Menambahkan barang ke keranjang belanja virtual
 - Mengubah nama,jumlah, atau harga barang yang telah dibeli
@@ -27,6 +21,15 @@ Membuat program kasir sederhana yang mempunyai fungsi:
 - Menampilkan daftar barang yang ada di keranjang
 - Menghitung harga total belanja akhir dan cek diskon berdasarkan total belanja 
 - UI sederhana untuk menjalankan fungsi-fungsi diatas dengan user input
+
+
+Tujuan Pembelajaran:
+- Membuat program kasir sederhana dengan prinsip OOP
+- Menerapkan konsep error catching dengan 'try-except'
+- Menerapkan metode modular code 
+- Menerapkan penulisan code yang bersih(clean code) dengan acuan PEP8
+
+
 
 ## Flowchart:
 ![FLOWCHART KASIR](https://user-images.githubusercontent.com/122888994/216419676-545da74c-c9f1-4ba1-aa25-ba4289d85c0e.png)
